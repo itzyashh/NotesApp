@@ -3,6 +3,7 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigator from "./StackNavigator";
+import { BlogProvider } from "./src/context/BlogContext";
 
 function App() {
   return (
@@ -12,4 +13,10 @@ function App() {
   );
 }
 
-export default App;
+export default () => {
+  return (
+    <BlogProvider>
+      <App />
+    </BlogProvider>
+  );
+};

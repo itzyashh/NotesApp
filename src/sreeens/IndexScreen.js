@@ -10,21 +10,12 @@ import React, { useContext } from "react";
 import BlogContext from "../context/BlogContext";
 import Card from "../components/Card";
 import { AntDesign } from "react-native-vector-icons";
+import useHeader from "../hooks/useHeader";
 
 const IndexScreen = ({ navigation }) => {
   const { data } = useContext(BlogContext);
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerStyle: { backgroundColor: "#A6B1E1" },
-      headerTitleStyle: { color: "#424874" },
-      headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.navigate("Create")}>
-          <AntDesign name="plus" size={27} color="#F4EEFF" />
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
+  useHeader({ navigation, Icon: AntDesign, Iconname: "plus" });
 
   return (
     <View style={styles.container}>

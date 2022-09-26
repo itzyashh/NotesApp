@@ -23,7 +23,9 @@ const IndexScreen = ({ navigation }) => {
         data={data}
         keyExtractor={(blogPosts) => blogPosts.title}
         renderItem={({ item }) => {
-          return <Card title={item.title} />;
+          return (
+            <Card title={item.title} id={item.id} navigation={navigation} />
+          );
         }}
       />
     </View>

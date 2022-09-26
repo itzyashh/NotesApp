@@ -1,13 +1,16 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
 
-const Form = ({ title, description }) => {
+const Form = ({ label, onSave }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   return (
     <View style={styles.container}>
-      <Text>{title}</Text>
-      <TextInput />
-      <Text>{description}</Text>
-      <TextInput />
+      <Text>{label.title}</Text>
+      <TextInput value={title} onChangeText={(e) => setTitle(e)} />
+      <Text>{label.description}</Text>
+      <TextInput value={description} onChangeText={(e) => setDescription(e)} />
+      <Button title="save" onPress={() => onSave(title, description)} />
     </View>
   );
 };

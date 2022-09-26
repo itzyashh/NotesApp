@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 
-const Card = ({ title }) => {
+const Card = ({ title, id, navigation }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate("Show", { id })}>
       <View style={styles.container}>
         <Text style={styles.text}>{title}</Text>
       </View>

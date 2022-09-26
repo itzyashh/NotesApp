@@ -12,7 +12,9 @@ const CreateScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Form
         label={{ title: "Title", description: "Description" }}
-        onSave={(title, description) => addBlogPost(title, description)}
+        onSave={(title, description) =>
+          addBlogPost(title, description, () => navigation.navigate("Index"))
+        }
       />
     </View>
   );

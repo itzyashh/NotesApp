@@ -15,13 +15,18 @@ import useHeader from "../hooks/useHeader";
 const IndexScreen = ({ navigation }) => {
   const { data } = useContext(BlogContext);
 
-  useHeader({ navigation, Icon: AntDesign, Iconname: "plus" });
+  useHeader({
+    navigation,
+    Icon: AntDesign,
+    Iconname: "plus",
+    routeName: "Create",
+  });
 
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
-        keyExtractor={(blogPosts) => blogPosts.title}
+        keyExtractor={(blogPost) => blogPost.id}
         renderItem={({ item }) => {
           return (
             <Card title={item.title} id={item.id} navigation={navigation} />

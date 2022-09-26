@@ -5,7 +5,9 @@ const Card = ({ title, id, navigation }) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Show", { id })}>
       <View style={styles.container}>
-        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text}>
+          {title}-{id}
+        </Text>
       </View>
     </TouchableOpacity>
   );

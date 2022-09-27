@@ -26,14 +26,14 @@ const Form = ({ label, onSave, initialState, id }) => {
         <TextInput
           style={styles.textInput}
           value={title}
-          placeholder={label.title + ".."}
+          placeholder={label.title + "..."}
           onChangeText={(e) => setTitle(e)}
         />
         <TextInput
           multiline={true} // ios fix for centering it at the top-left corner
           numberOfLines={10}
           style={styles.textInputDescription}
-          placeholder={label.description + ".."}
+          placeholder={label.description + "..."}
           value={description}
           onChangeText={(e) => setDescription(e)}
         />

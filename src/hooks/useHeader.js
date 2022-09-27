@@ -9,6 +9,7 @@ export default ({
   id,
   headerTitle,
   iconSize,
+  onPress,
 }) => {
   const route = useRoute();
   React.useLayoutEffect(() => {
@@ -19,7 +20,9 @@ export default ({
       headerRight: Icon
         ? () => (
             <TouchableOpacity
-              onPress={() => navigation.navigate(routeName, { id })}
+              onPress={
+                onPress ? onPress : () => navigation.navigate(routeName, { id })
+              }
             >
               {Icon && (
                 <Icon

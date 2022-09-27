@@ -7,7 +7,7 @@ import { Feather } from "react-native-vector-icons";
 
 const CreateScreen = ({ navigation }) => {
   const { addBlogPost } = useContext(BlogContext);
-  useHeader({ navigation, Icon: Feather, Iconname: "check", iconSize: 40 });
+  useHeader({ navigation });
 
   return (
     <View style={styles.container}>

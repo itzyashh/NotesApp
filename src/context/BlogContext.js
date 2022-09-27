@@ -19,6 +19,9 @@ const reducer = (state, action) => {
         return blogPost.id === action.payload.id ? action.payload : blogPost;
       });
 
+    case "delete":
+      return state.filter((blogPost) => blogPost.id !== action.payload);
+
     default:
       return state;
   }
@@ -49,9 +52,14 @@ export const BlogProvider = ({ children }) => {
     dispatch({ type: "edit", payload: { title, description, id } });
     goBack();
   };
+  const deleteBlogPost = (id) => {
+    dispatch({ type: "delete", payload: id });
+  };
 
   return (
-    <BlogContext.Provider value={{ data: state, addBlogPost, editBlogPost }}>
+    <BlogContext.Provider
+      value={{ data: state, addBlogPost, editBlogPost, deleteBlogPost }}
+    >
       {children}
     </BlogContext.Provider>
   );

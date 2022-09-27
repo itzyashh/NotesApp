@@ -1,8 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { MaterialIcons } from "react-native-vector-icons";
+import BlogContext from "../context/BlogContext";
 
 const Card = ({ title, id, navigation }) => {
+  const { deleteBlogPost } = useContext(BlogContext);
   return (
     <TouchableOpacity
       style={{
@@ -18,10 +20,10 @@ const Card = ({ title, id, navigation }) => {
         </Text>
         <TouchableOpacity
           style={styles.deleteButton}
-          onPress={() => console.log("Deleted" + id)}
+          onPress={() => deleteBlogPost(id)}
         >
           <View>
-            <MaterialIcons style={styles.icon} name="delete" size={25} />
+            <MaterialIcons style={styles.icon} name="delete" size={24} />
           </View>
         </TouchableOpacity>
       </View>
